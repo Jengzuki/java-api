@@ -41,7 +41,7 @@ public class HanbitSchool {
 			 	System.out.println(service.searchByName(name2));
 			 	
 				break;
-			case 5:	System.out.println("성적성적 순으로 순위 출력");
+			case 5:	System.out.println("성적순으로 순위 출력");
 				System.out.println(service.descGradeByTotal().toString());
 				
 				break;

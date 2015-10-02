@@ -2,12 +2,12 @@ package grade;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.lang.model.element.Element;
 
 public class GradeServiceImple implements GradeService{
-	Vector<Grade> vec = new Vector<Grade>();
+	ArrayList<Grade> vec = new ArrayList<Grade>();
 	DescTotal desort = new DescTotal();
 	AscName arx = new AscName();
 		
@@ -33,8 +33,8 @@ public class GradeServiceImple implements GradeService{
 	 */
 
 	@Override
-	public Vector<Grade> getList() {
-	//	Vector<Grade> temp = new Vector<Grade>();
+	public ArrayList<Grade> getList() {
+	//	ArrayList<Grade> temp = new ArrayList<Grade>();
 	//  temp.addAll(vec);
 		return vec;
 	}
@@ -46,10 +46,8 @@ public class GradeServiceImple implements GradeService{
 	public Grade searchByHak(String hak) {
 		Grade grade = new Grade();
 		for (int i = 0; i < vec.size(); i++) {  //천 대신에 벡터의 length를 구하는 메소드 찾아 놓을 것 
-			if (vec.elementAt(i).getHak().equals(hak)) {
-				grade = vec.elementAt(i);
-			}else {
-				grade = null;
+			if (vec.get(i).getHak().equals(hak)) {
+				grade = vec.get(i);
 			}
 		}
 		return grade;
@@ -58,26 +56,33 @@ public class GradeServiceImple implements GradeService{
 	 * 이름으로 학적부에 등록된 학생 정보 전부 검색하기.(동명이인일 경우 전부 검색)
 	 */
 	@Override
-	public Vector<Grade> searchByName(String name) {
-		Vector<Grade> temp = new Vector<Grade>();
+	public ArrayList<Grade> searchByName(String name) {
+		ArrayList<Grade> temp = new ArrayList<Grade>();
 		for (int i = 0; i < vec.size(); i++) {
-			if (vec.elementAt(i).getName().equals(name)) {
-				temp.add(vec.elementAt(i));
+			if (vec.get(i).getName().equals(name)) {
+				temp.add(vec.get(i));
 			}
 		}
 		return temp;
 		}
 	
 	@Override
-	public Vector<Grade> descGradeByTotal() {
+	public ArrayList<Grade> descGradeByTotal() {
 		Collections.sort(vec, desort);
-		return vec;
+			return vec;
 	}
 
 	@Override
-	public Vector<Grade> ascGradeByName() {
+	public ArrayList<Grade> ascGradeByName() {
 		Collections.sort(vec, arx);
 		return vec;
 	}
+	public void descTotal(){
 	
+		
+	}
+	public void ascTotal(){
+		
+		
+	}
 }
