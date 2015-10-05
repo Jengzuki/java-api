@@ -33,7 +33,7 @@ public class MemberServiceImpl implements MemberService{
 		if (map.containsKey(id)) {//맵에 키값으로 검색 ID가 있다면
 			Member temp = new Member();
 			temp =(Member) map.get(id); // why? 맵에서 value가 오브젝트이기 때문
-			if (temp.getPass().equals(pass) && temp.getId().equals(id)) {
+			if (member.getPass().equals(pass)) {
 				str = "환영합니다."+temp.getAddr()+"에 사시는 "+temp.getAge()+"세 "+temp.getName()+"님";
 			} else {
 				str = "비번이 다릅니다. 다시 입력해주세요";
@@ -54,27 +54,55 @@ public class MemberServiceImpl implements MemberService{
 		return str;
 	}
 
-
+/**
+ * 전체회원수
+ */
 	@Override
 	public int count() {
-		Member mem = new Member();
-	
-		return 0;
+		return map.size();
 	}
 
 	@Override
 	public Member searchById(String id) {
-		Member mem = new Member();
-		String result = "입력하신 아이디는 존재하지 않거나, 일치하지 않습니다. 다시 입력해주세요. ";
-		for (int i = 0; i < map.size(); i++) {
-			if (map.get(i).equals(id)) {
-				mem.toString();
-			}else {
-				result = "입력하신 아이디는 존재하지 않거나, 일치하지 않습니다. 다시 입력해주세요. ";
+		/**Member temp = (Member)map.get(id);
+		Member result = null;
+		if (id.equals(temp.getId())) {
+			result = temp;
 			}
+		
+		return result;
+		*/
+		return (Member)map.get(id);
+	}
+/**
+ * 비번변경
+ */
+
+	@Override
+	public String changeByPass(String id ,String pass) {
+		String result = "";
+		Member target = (Member) map.get(id);
+		if (target != null) {
+			target.setPass(pass);
+			result = "비밀번호가 변경되었습니다.";
+		}else {
+			result = "아이디가 없습니다. 다시 입력해주세요.";
 		}
-		return mem;
+		return result;
+	}
+
+@Override
+public String remove(String id) {
+	String result = null;
+	Object n = map.remove(id); // 리턴값이 value
+	if (n != null) {
+		result = "입력하신 ID : " + id + "가 삭제되었습니다.";
+		} 
+	else {
+		result = "삭제하려는 ID가 없습니다. 다시 입력해주세요.";
 	}
 	
+	return result;
+}
 
 }

@@ -9,6 +9,10 @@ public interface MemberService {
 	public int count();
 	// 아이디검색
 	public Member searchById(String id);
+	// 비번 변경
+	public String changeByPass(String id ,String pass);
+	// 회원타ㄹ퇴
+	public String remove(String id);
 	
 	
 }
