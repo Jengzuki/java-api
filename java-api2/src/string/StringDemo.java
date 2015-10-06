@@ -1,4 +1,4 @@
-package stromg;
+package string;
 /**
  * @file_name : StringDemo.java
  * @author 	  : apfl1@naver.com
