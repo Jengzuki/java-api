@@ -30,7 +30,7 @@ public class CalendarMain {
 class DayCounter {
 	public String noname(String a) {
 		Calendar dstDay = Calendar.getInstance(); 
-		Calendar today = Calendar.getInstance();
+		Calendar today = Calendar.getInstance(); // 스테틱 메소드. rt.jar 에 getInstance()위치값(주소)를 호출
 		
 		if (today.getTimeInMillis() > dstDay.getTimeInMillis()) {
 			return "오늘보다 과거입니다";
