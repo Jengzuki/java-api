@@ -7,6 +7,14 @@ import java.util.Set;
 public class MemberServiceImpl implements MemberService{
 	Map<String,Object> map = new HashMap<String,Object>();
 	Member member = new Member();
+	private static MemberService servic = new MemberServiceImpl();
+	
+	
+	public static MemberService getServic() {
+		return servic;
+	}
+
+	
 	
 	@Override
 	public void join(String id, String pass, String name, String age, String addr) {
