@@ -2,6 +2,10 @@ package map;
 
 import java.util.Scanner;
 
+import map.Member;
+import map.MemberService;
+import map.MemberServiceImpl;
+
 public class HanbitCom {
 	/**
 	 * "안녕하세요".substring(0,2); 0이상 2미만
